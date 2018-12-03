@@ -6,6 +6,7 @@
 package model;
 
 import javafx.event.EventHandler;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -16,12 +17,19 @@ import javafx.scene.input.KeyEvent;
  * @author Euller
  */
 public class CAContButton extends ImageView {
-    
+
     public CAContButton(Image img) {
         setImage(img);
         initializeButtonListeners();
     }
 
+    public void setIconEntered(ImageView userIcon) {
+            setEffect(new DropShadow());
+    }
+
+    public void setIconExit(ImageView userIcon) {
+            setEffect(null);
+    }
 
     public void setButtonPressedStyle() {
         setLayoutY(getLayoutY() + 4);
@@ -35,7 +43,7 @@ public class CAContButton extends ImageView {
         setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (event.getCode().equals(KeyCode.ENTER)){
+                if (event.getCode().equals(KeyCode.ENTER)) {
                     setButtonPressedStyle();
                 }
             }

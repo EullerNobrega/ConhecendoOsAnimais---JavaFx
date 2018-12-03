@@ -5,14 +5,14 @@
  */
 package Telas;
 
+import java.util.Scanner;
 import model.IconeUsuario;
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.effect.DropShadow;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import model.CAContButton;
 import model.CAContScene;
 import model.ImgContinentes;
+import model.InfoLabelGame;
 
 /**
  *
@@ -40,15 +41,11 @@ public class TelaJogo {
     private Stage menuStage;
     private ImageView userIcon;
 
+    private InfoLabelGame pointsLabel;
+    private int points;
+
     private CAContScene sceneToHide;
-    private CAContScene americaSulSubScene;
-    private CAContScene americaNorteSubScene;
-    private CAContScene europaSubScene;
-    private CAContScene asiaSubScene;
-    private CAContScene antartidaSubScene;
-    private CAContScene oceaniaSubScene;
-    private CAContScene africaSubScene;
-    private CAContScene SubScene;
+    private CAContButton americaDoNorte, americaDoSul, europa, africa, asia, oceania, antartida;
 
     private boolean isLeftKeyPressed;
     private boolean isRightKeyPressed;
@@ -67,7 +64,6 @@ public class TelaJogo {
     public TelaJogo() {
         initializeStage();
         createKeyListeners();
-//        createSubsScenes();
 
     }
 
@@ -79,34 +75,7 @@ public class TelaJogo {
         sceneToHide = subscene;
     }
 
-//    public void createSubsScenes() {
-//        americaNorteSubScene = new CAContScene(BACKGROUND_AMERICAS);
-//        gamePane.getChildren().add(americaNorteSubScene);
-//
-//        americaSulSubScene = new CAContScene(BACKGROUND_AMERICAS);
-//        gamePane.getChildren().add(americaSulSubScene);
-//
-//        africaSubScene = new CAContScene(BACKGROUND_AFRICA_ASIA);
-//        gamePane.getChildren().add(africaSubScene);
-//
-//        asiaSubScene = new CAContScene(BACKGROUND_AFRICA_ASIA);
-//        gamePane.getChildren().add(asiaSubScene);
-//
-//        europaSubScene = new CAContScene(BACKGROUND_OCEANIA_EUROPA);
-//        gamePane.getChildren().add(europaSubScene);
-//
-//        oceaniaSubScene = new CAContScene(BACKGROUND_OCEANIA_EUROPA);
-//        gamePane.getChildren().add(oceaniaSubScene);
-//
-//        antartidaSubScene = new CAContScene(BACKGROUND_ANTARTIDA);
-//        gamePane.getChildren().add(antartidaSubScene);
-//
-//    }
-//    public void createGameSubScene() {
-//        
-//
-//    }
-    public void createButtons() {
+    public void createGameElements() {
         createAmericaSulButton();
         createAmericaNorteButton();
         createAfricaButton();
@@ -114,6 +83,10 @@ public class TelaJogo {
         createAsiaButton();
         createOceaniaButton();
         createAntartidaButton();
+        pointsLabel = new InfoLabelGame("Pontos: 00");
+        pointsLabel.setLayoutX(1150);
+        pointsLabel.setLayoutY(624);
+        gamePane.getChildren().add(pointsLabel);
     }
 
     private void createKeyListeners() {
@@ -161,7 +134,7 @@ public class TelaJogo {
         this.menuStage.hide();
         createBackGround();
         createGameLoop();
-        createButtons();
+        createGameElements();
         createUserIcon(choosenUserIcon);
         gameStage.show();
     }
@@ -180,6 +153,7 @@ public class TelaJogo {
             @Override
             public void handle(long now) {
                 moveIcon();
+                abreCont();
             }
         };
 
@@ -251,136 +225,162 @@ public class TelaJogo {
 
     private void createAmericaSulButton() {
         Image americaSul = new Image(ImgContinentes.AMERICA_DO_SUL.getUrlImgCont());
-
-        CAContButton americaDoSul = new CAContButton(americaSul);
-        americaDoSul.setLayoutX(0);
-        americaDoSul.setLayoutY(0);
-
-        americaDoSul.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        americaDoSul = new CAContButton(americaSul);
         gamePane.getChildren().add(americaDoSul);
 
     }
 
     private void createAmericaNorteButton() {
-       Image americaNorte = new Image(ImgContinentes.AMERICA_DO_NORTE.getUrlImgCont());
-
-        CAContButton americaDoNorte = new CAContButton(americaNorte);
-        americaDoNorte.setLayoutX(0);
-        americaDoNorte.setLayoutY(0);
-
-        americaDoNorte.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        Image americaNorte = new Image(ImgContinentes.AMERICA_DO_NORTE.getUrlImgCont());
+        americaDoNorte = new CAContButton(americaNorte);
         gamePane.getChildren().add(americaDoNorte);
     }
 
     private void createAfricaButton() {
         Image africa_ = new Image(ImgContinentes.AFRICA.getUrlImgCont());
-
-        CAContButton africa = new CAContButton(africa_);
-        africa.setLayoutX(0);
-        africa.setLayoutY(0);
-
-        africa.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        africa = new CAContButton(africa_);
         gamePane.getChildren().add(africa);
     }
 
     private void createEuropaButton() {
-        Image europa_ = new Image(ImgContinentes.AMERICA_DO_SUL.getUrlImgCont());
-
-        CAContButton europa = new CAContButton(europa_);
-        europa.setLayoutX(0);
-        europa.setLayoutY(0);
-
-        europa.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        Image europa_ = new Image(ImgContinentes.EUROPA.getUrlImgCont());
+        europa = new CAContButton(europa_);
         gamePane.getChildren().add(europa);
     }
 
     private void createAsiaButton() {
-       Image asia_ = new Image(ImgContinentes.AMERICA_DO_SUL.getUrlImgCont());
-
-        CAContButton asia = new CAContButton(asia_);
-        asia.setLayoutX(0);
-        asia.setLayoutY(0);
-
-        asia.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        Image asia_ = new Image(ImgContinentes.ASIA.getUrlImgCont());
+        asia = new CAContButton(asia_);
         gamePane.getChildren().add(asia);
     }
 
     private void createOceaniaButton() {
-        Image oceania_ = new Image(ImgContinentes.AMERICA_DO_SUL.getUrlImgCont());
-
-        CAContButton oceania = new CAContButton(oceania_);
-        oceania.setLayoutX(0);
-        oceania.setLayoutY(0);
-
-        oceania.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        Image oceania_ = new Image(ImgContinentes.OCEANIA.getUrlImgCont());
+        oceania = new CAContButton(oceania_);
         gamePane.getChildren().add(oceania);
     }
 
     private void createAntartidaButton() {
-        Image antartida_ = new Image(ImgContinentes.AMERICA_DO_SUL.getUrlImgCont());
-
-        CAContButton antartida = new CAContButton(antartida_);
-        antartida.setLayoutX(0);
-        antartida.setLayoutY(0);
-
-        antartida.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println("i");
-//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-
-            }
-        });
+        Image antartida_ = new Image(ImgContinentes.ANTARTIDA.getUrlImgCont());
+        antartida = new CAContButton(antartida_);
         gamePane.getChildren().add(antartida);
     }
 
+    private boolean verificaPosicao(double xIni, double xFim, double yIni, double yFim, CAContButton cont) {
+        System.out.println("X = " + userIcon.getLayoutX());
+        System.out.println("Y = " + userIcon.getLayoutY());
+        System.out.println("\n");
+
+        if ((userIcon.getLayoutX() >= xIni && userIcon.getLayoutX() <= xFim) && (userIcon.getLayoutY() >= yIni && userIcon.getLayoutY() <= yFim)) {
+            cont.setIconEntered(userIcon);
+            return true;
+        } else {
+            cont.setIconExit(userIcon);
+            return false;
+        }
+    }
+
+    public void abreCont() {
+
+        if (verificaPosicao(757, 1111, 60, 291, asia)) { // xIni, xFim, yIni, yFim (dimensoes do cont)
+            asia.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.equals(KeyCode.ENTER)) {
+                        System.out.println("Abrindo tela de asia");
+                        TelaAsia telaAsia = new TelaAsia();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+                }
+            });
+        }
+
+        if (verificaPosicao(1027, 1162, 378, 483, oceania)) {
+            oceania.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.equals(KeyCode.ENTER)) {
+                        System.out.println("Abrindo tela de oceania");
+                        TelaOceania telaOceania = new TelaOceania();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+                }
+
+            });
+        }
+        if (verificaPosicao(139, 1099, 597, 651, antartida)) {
+            antartida.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.equals(KeyCode.ENTER)) {
+                        System.out.println("Abrindo tela de antartida");
+                        TelaAntartida telaAntartida = new TelaAntartida();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+
+                }
+            });
+        }
+        if (verificaPosicao(583, 700, 105, 210, europa)) {
+            europa.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.equals(KeyCode.ENTER)) {
+                        System.out.println("Abrindo tela de europa");
+                        TelaEuropa telaEuropa = new TelaEuropa();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+                }
+            });
+        }
+        if (verificaPosicao(547, 712, 267, 460, africa)) {
+            africa.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent event) {
+                    if (event.equals(KeyCode.ENTER)) {
+                        System.out.println("Abrindo tela de africa");
+                        TelaAfrica telaAfrica = new TelaAfrica();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+                }
+            });
+        }
+        if (verificaPosicao(58, 331, 108, 303, americaDoNorte)) {
+            telaButtonAmericaDoNorte();
+        }
+
+        if (verificaPosicao(292, 418, 363, 543, americaDoSul)) {
+            americaDoSul.setOnKeyReleased(new EventHandler<KeyEvent>() {
+                public void handle(KeyEvent event) {
+                    System.out.println("Entrou");
+                    if (event.getCode() == KeyCode.ENTER) {
+                        System.out.println("Abrindo tela de americaDoSul");
+                        TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                    }
+                }
+            });
+
+        }
+    }
+
+    private void telaButtonAmericaDoNorte() {
+        Button americaDoNorte = new Button("America Do Norte");
+        americaDoNorte.setLayoutX(30);
+        americaDoNorte.setLayoutY(800);
+
+        americaDoNorte.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                System.out.println("Entrou");
+                if (event.getCode() == KeyCode.ENTER) {
+                    System.out.println("Abrindo tela de americaDoNorte");
+                    TelaAmericaNorte telaAmericaNorte = new TelaAmericaNorte();
+//                    telaAmericaNorte.
+//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+                }
+            }
+        });
+        gamePane.getChildren().add(americaDoNorte);
+    }
 }

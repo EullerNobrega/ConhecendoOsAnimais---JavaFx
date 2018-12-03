@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Telas;
 
 import model.CAButton;
@@ -19,17 +14,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.stage.Stage;
 
 /**
@@ -244,69 +234,4 @@ public final class TelaInicio {
         gc.strokeText("Conhecendo os Animais", 380, 80); // Escreve o contorno do texto
         painelPrincipal.getChildren().add(canvas);
     }
-
-    public void TelaInicio(Stage primaryStage) {
-
-        Font font = Font.font(FONT_PATH, FontPosture.REGULAR, 60); // Define tipo da fonte ao ser escrito
-
-//        Layout
-        AnchorPane root = new AnchorPane();
-        root.setMaxSize(1024, 720);
-
-//        Scene
-        Scene scene = new Scene(root, 1024, 720);
-        scene.setFill(Color.WHITE);
-        scene.setOnKeyTyped(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                System.out.println(event.getCharacter());
-                StackPane root = new StackPane();
-                Label labelMenu = new Label("Vamos explorar alguns \nanimais do mundo");
-                labelMenu.setFont(font);
-                labelMenu.setTextFill(Color.CRIMSON);
-                root.getChildren().add(labelMenu);
-                Scene scene = new Scene(root, 1024, 720);
-                scene.setFill(Color.WHITE);
-                primaryStage.setScene(scene);
-                System.out.println("Entrou");
-            }
-        });
-
-//        No
-        Canvas canvas = new Canvas(1024, 720);
-        Image telaInicial = new Image("resources/imagens/animal_mural.jpg");  // Imagem tela Inicio
-
-        ImageView imageView = new ImageView(telaInicial);
-        root.getChildren().add(imageView);
-
-        GraphicsContext gc = canvas.getGraphicsContext2D(); // classe é usada para emitir chamadas de desenho para um Canvas usando um buffer.
-
-        gc.setFill(Color.BLUEVIOLET); // Seta cor do preenchimento
-
-        gc.setStroke(Color.GREENYELLOW); // Seta cor do contorno
-
-        gc.setLineWidth(
-                1); // Seta a largura da linha
-
-        gc.setFont(font); // Seta a fonte escolhida
-
-//        gc.drawImage(telaInicial,
-//                0, 68); // Desenha a imagem escolhida
-        gc.fillText(
-                "Conhecendo os Animais", 160, 80); // Escreve o preenchimento do texto
-        gc.strokeText(
-                "Conhecendo os Animais", 160, 80); // Escreve o contorno do texto
-
-//        Add elementos na cena
-        root.getChildren()
-                .add(canvas);
-
-//       Add scene ao stage
-        primaryStage.setScene(scene);
-
-//      Apresenta o Stage
-        primaryStage.show();
-
-    }
-
 }

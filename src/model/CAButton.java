@@ -35,6 +35,7 @@ public class CAButton extends Button {
         setButtonFont();
         setStyle(BUTTON_FREE_STYLE);
         initializeButtonListeners();
+        
     }
 
     private void setButtonFont() {

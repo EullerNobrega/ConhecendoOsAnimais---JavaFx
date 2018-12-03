@@ -6,6 +6,7 @@
 package model;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -17,9 +18,9 @@ public class Animal {
     private String alimentacao;
     private String estimativaVida;
     private String curiosidade;
-    private Image imagemAnimal;
+    private ImageView imagemAnimal;
 
-    public Animal(String nome, String nomeCientifico, String alimentacao, String estimativaVida, String curiosidade, Image imagemAnimal) {
+    public Animal(String nome, String nomeCientifico, String alimentacao, String estimativaVida, String curiosidade, ImageView imagemAnimal) {
         this.nome = nome;
         this.nomeCientifico = nomeCientifico;
         this.alimentacao = alimentacao;
@@ -56,11 +57,11 @@ public class Animal {
         return estimativaVida;
     }
 
-    public Image getImagemAnimal() {
+    public ImageView getImagemAnimal() {
         return imagemAnimal;
     }
 
-    public void setImagemAnimal(Image imagemAnimal) {
+    public void setImagemAnimal(ImageView imagemAnimal) {
         this.imagemAnimal = imagemAnimal;
     }
 
