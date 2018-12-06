@@ -21,6 +21,7 @@ import repositorio.RepositorioAnimaisAmericaNorte;
 class TelaAmericaNorte {
 
     private AnchorPane gamePane;
+    private Stage menuStage;
     private Scene gameScene;
     private Stage gameStage;
 
@@ -41,6 +42,12 @@ class TelaAmericaNorte {
         gameStage = new Stage();
         gameStage.setScene(gameScene);
         gameStage.setTitle("Conhecendo os Animais - By : Euller Nóbrega Honorato");
+    }
+    
+     public void createNewGame(Stage menuStage) {
+        this.menuStage = menuStage;
+        this.menuStage.hide();
+        gameStage.show();
     }
 
     public void animais() {

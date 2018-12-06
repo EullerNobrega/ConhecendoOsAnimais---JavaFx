@@ -204,7 +204,7 @@ public class TelaJogo {
             }
         }
 
-        if (!isRightKeyPressed && !isLeftKeyPressed && !isDownKeyPressed && !isRightKeyPressed) {
+        if (!isRightKeyPressed && !isLeftKeyPressed && !isDownKeyPressed && !isUpKeyPressed) {
             if (angle < 0) {
                 angle += 5;
             } else if (angle > 0) {
@@ -289,7 +289,6 @@ public class TelaJogo {
                     if (event.equals(KeyCode.ENTER)) {
                         System.out.println("Abrindo tela de asia");
                         TelaAsia telaAsia = new TelaAsia();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
                 }
             });
@@ -302,7 +301,6 @@ public class TelaJogo {
                     if (event.equals(KeyCode.ENTER)) {
                         System.out.println("Abrindo tela de oceania");
                         TelaOceania telaOceania = new TelaOceania();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
                 }
 
@@ -315,7 +313,6 @@ public class TelaJogo {
                     if (event.equals(KeyCode.ENTER)) {
                         System.out.println("Abrindo tela de antartida");
                         TelaAntartida telaAntartida = new TelaAntartida();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
 
                 }
@@ -328,7 +325,6 @@ public class TelaJogo {
                     if (event.equals(KeyCode.ENTER)) {
                         System.out.println("Abrindo tela de europa");
                         TelaEuropa telaEuropa = new TelaEuropa();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
                 }
             });
@@ -340,7 +336,6 @@ public class TelaJogo {
                     if (event.equals(KeyCode.ENTER)) {
                         System.out.println("Abrindo tela de africa");
                         TelaAfrica telaAfrica = new TelaAfrica();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
                 }
             });
@@ -356,7 +351,6 @@ public class TelaJogo {
                     if (event.getCode() == KeyCode.ENTER) {
                         System.out.println("Abrindo tela de americaDoSul");
                         TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
                     }
                 }
             });
@@ -376,8 +370,7 @@ public class TelaJogo {
                 if (event.getCode() == KeyCode.ENTER) {
                     System.out.println("Abrindo tela de americaDoNorte");
                     TelaAmericaNorte telaAmericaNorte = new TelaAmericaNorte();
-//                    telaAmericaNorte.
-//                    gameManager.createNewGame(stagePrincipal, choosenIcon);
+//                    telaAmericaNorte.createNewGame(menuStage);
                 }
             }
         });

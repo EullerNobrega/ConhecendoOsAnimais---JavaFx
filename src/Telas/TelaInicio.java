@@ -39,8 +39,8 @@ public final class TelaInicio {
     private Scene scenePrincipal;
     private Stage stagePrincipal;
 
-    private CASubScene helpSubScene;
-    private CASubScene creditsSubScene;
+    private CASubScene ajudaSubScene;
+    private CASubScene creditosSubScene;
     private CASubScene escolhaUsuarioSubScene;
 
     private CASubScene sceneToHide;
@@ -57,8 +57,8 @@ public final class TelaInicio {
         this.stagePrincipal = new Stage();
         this.stagePrincipal.setScene(scenePrincipal);
         this.stagePrincipal.setTitle("Conhecendo os Animais - By : Euller Nóbrega Honorato");
-        createBackGround();
-        createTitulo();
+        criarBackGround();
+        criarTitulo();
         createButtons();
         createSubsScenes();
     }
@@ -76,11 +76,11 @@ public final class TelaInicio {
     }
 
     public void createSubsScenes() {
-        helpSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(helpSubScene);
+        ajudaSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(ajudaSubScene);
 
-        creditsSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(creditsSubScene);
+        creditosSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(creditosSubScene);
 
         escolhaUsuarioSubScene = new CASubScene();
         painelPrincipal.getChildren().add(escolhaUsuarioSubScene);
@@ -110,11 +110,11 @@ public final class TelaInicio {
             iconToPick.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                   for(IconeUsuarioEscolhido icon : iconList){
-                       icon.setIsCircleChoosen(false);
-                   }
-                   iconToPick.setIsCircleChoosen(true);
-                   choosenIcon = iconToPick.getUserIcon();
+                    for (IconeUsuarioEscolhido icon : iconList) {
+                        icon.setIsCircleChoosen(false);
+                    }
+                    iconToPick.setIsCircleChoosen(true);
+                    choosenIcon = iconToPick.getUserIcon();
                 }
             }
             );
@@ -125,33 +125,33 @@ public final class TelaInicio {
         box.setLayoutY(100);
         return box;
     }
-    
-    private CAButton createButtonStart(){
+
+    private CAButton createButtonStart() {
         CAButton startButton = new CAButton("start");
         startButton.setLayoutX(550);
         startButton.setLayoutY(460);
-        
+
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(choosenIcon != null){
+                if (choosenIcon != null) {
                     TelaJogo gameManager = new TelaJogo();
                     gameManager.createNewGame(stagePrincipal, choosenIcon);
                 }
             }
         });
-                
+
         return startButton;
     }
 
     public void createButtons() {
-        createStartButton();
-        createCreditsButton();
-        createHelpButton();
-        createExitButton();
+        criarStartButton();
+        criarCreditsButton();
+        criarHelpButton();
+        criarExitButton();
     }
 
-    public void createStartButton() {
+    public void criarStartButton() {
         CAButton startButton = new CAButton("JOGAR");
         addMenuButton(startButton);
 
@@ -163,33 +163,33 @@ public final class TelaInicio {
         });
     }
 
-    public void createCreditsButton() {
+    public void criarCreditsButton() {
         CAButton creditsButton = new CAButton("Creditos");
         addMenuButton(creditsButton);
 
         creditsButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                showSubScene(creditsSubScene);
+                showSubScene(creditosSubScene);
 
             }
         });
     }
 
-    public void createHelpButton() {
+    public void criarHelpButton() {
         CAButton helpAButton = new CAButton("AJUDA");
         addMenuButton(helpAButton);
 
         helpAButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                showSubScene(helpSubScene);
+                showSubScene(ajudaSubScene);
 
             }
         });
     }
 
-    public void createExitButton() {
+    public void criarExitButton() {
         CAButton exitButton = new CAButton("SAIR");
         addMenuButton(exitButton);
         exitButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -209,7 +209,7 @@ public final class TelaInicio {
         painelPrincipal.getChildren().add(button);
     }
 
-    public void createBackGround() {
+    public void criarBackGround() {
         Image backgroundImage = new Image("resources/imagens/animal_mural.jpg");  // Imagem tela Inicio
         Canvas canvas = new Canvas(HEIGTH, WIDHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -219,7 +219,7 @@ public final class TelaInicio {
         gc.drawImage(backgroundImage, 230, 35); // Desenha a imagem escolhida
     }
 
-    public void createTitulo() {
+    public void criarTitulo() {
         Canvas canvas = new Canvas(HEIGTH, WIDHT);
         GraphicsContext gc = canvas.getGraphicsContext2D(); // classe é usada para emitir chamadas de desenho para um Canvas usando um buffer.
         gc.setFill(Color.BLUEVIOLET); // Seta cor do preenchimento
