@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repositorio;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class RepositorioAnimaisAntartida extends AbstractRepositorio {
         coruja = "resources/imagens/animais/antartida/coruja_neves2.png";
         beluga = "resources/imagens/animais/antartida/coruja_neves2.png";
         narval = "resources/imagens/animais/antartida/narval2.png";
-        
+
         Image pinguimImg = new Image(pinguim);
         Image krillImg = new Image(krill);
         Image orcaImg = new Image(orca);
@@ -46,8 +41,7 @@ public class RepositorioAnimaisAntartida extends AbstractRepositorio {
         Image corujaImg = new Image(coruja);
         Image belugaImg = new Image(beluga);
         Image narvalImg = new Image(narval);
-        
-        
+
         animais.add(new Animal("Pinguim.", "Spheniscidae.", "Se alimenta de peixes, plâncton e cefalópodes.", "Vive em média 6 a 20 anos.", "Pinguins são muito adaptados à vida marinha. As asas não desenvolvidas são inúteis para voo no ar, porém na água são muito ágeis. Na terra, os pinguins usam a cauda e asas para manter o equilíbrio na postura ereta.", new ImageView(pinguimImg)));
         animais.add(new Animal("Krill.", "Euphausiacea.", "Se alimenta de algas.", "Vive em média 8 meses a 6 anos, dependendo da espécie.", "Passa o dia em profundidades maiores e vai em direção à superfície durante a noite. Quanto maior for a profundidade em que se encontre, menor é a sua atividade.", new ImageView(krillImg)));
         animais.add(new Animal("Orca.", "Orcinus orca.", "Se alimenta de peixes, moluscos, aves, tartarugas, focas, tubarões e baleias.", "Vive em média 17 a 29 anos em cativeiro, na natureza chegam a 80 anos.", "Mesmo tendo fama de “baleias assassinas”, as orcas não agridem humanos. Os únicos incidentes registrados ocorreram quando estes mamíferos estavam em cativeiro.", new ImageView(orcaImg)));

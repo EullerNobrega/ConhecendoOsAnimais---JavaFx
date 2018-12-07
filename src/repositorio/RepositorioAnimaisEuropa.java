@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repositorio;
 
 import java.util.ArrayList;
@@ -21,7 +16,7 @@ public class RepositorioAnimaisEuropa extends AbstractRepositorio {
     public RepositorioAnimaisEuropa() {
         init();
     }
-    
+
     @Override
     public void init() {
         final String javali, veado, esquilo, furao, foca, castor, lontra, bisonte, pato, ganso;
@@ -35,7 +30,7 @@ public class RepositorioAnimaisEuropa extends AbstractRepositorio {
         bisonte = "resources/imagens/animais/europa/bisonte_europeu.png";
         pato = "resources/imagens/animais/europa/pato_rabo_alcado.png";
         ganso = "resources/imagens/animais/europa/ganso_bico_curot2.png";
-        
+
         Image javaliImg = new Image(javali);
         Image veadoImg = new Image(veado);
         Image esquiloImg = new Image(esquilo);
@@ -46,12 +41,12 @@ public class RepositorioAnimaisEuropa extends AbstractRepositorio {
         Image bisonteImg = new Image(bisonte);
         Image patoImg = new Image(pato);
         Image gansoImg = new Image(ganso);
-        
+
         animais.add(new Animal("Javali.", "Sus scrofa.", "Se alimenta de raízes, frutos, pequenos mamíferos, caracóis, minhocas, insetos, entre outros.", "Vive em média de 2 a 10 anos.", "São noturnos, podem percorrer distâncias variáveis, que podem variar de 2 a 14 km/h por noite.", new ImageView(javaliImg)));
         animais.add(new Animal("Veado-vermelho.", "Cervus elaphus.", "Se alimenta de vegetais.", "Vive em média 20 anos em cativeiro e 13 anos na vida selvagem.", "O veado-vermelho é uma espécie de veado de grande porte do hemisfério norte, distribuído pela Europa, Ásia e norte da África.", new ImageView(veadoImg)));
         animais.add(new Animal("Esquilo-vermelho.", "Sciurus vulgaris.", "Se alimenta de sementes de árvores, cogumelos, ovos de pássaros, entre outros.", "Vive em média 3 anos na natureza.", "É um animal solitário, tímido e relutante em partilhar comida. No entanto, fora da estação de acasalamento e especialmente no inverno, diversos esquilos-vermelhos podem partilhar um ninho para se manterem quentes.", new ImageView(esquiloImg)));
-        animais.add( new Animal("Furão.", "Mustela putorius furo.", "Se alimenta de uva passa, pasta de amendoim e pedaços de cereais.", "Vive em média 6 a 10 anos.", "Ao contrário dos cães e dos gatos, a maioria dos furões quando se encontram perdidos, têm pouco sentido de orientação para retornar ao lar.", new ImageView(furaoImg)));
-        animais.add( new Animal("Foca.", "Phocidae.", "Mamífero, se alimenta principalmente de peixes.", "Vive em média 50 anos.", "As focas se comunicam entre si através de sons graves.", new ImageView(focaImg)));
+        animais.add(new Animal("Furão.", "Mustela putorius furo.", "Se alimenta de uva passa, pasta de amendoim e pedaços de cereais.", "Vive em média 6 a 10 anos.", "Ao contrário dos cães e dos gatos, a maioria dos furões quando se encontram perdidos, têm pouco sentido de orientação para retornar ao lar.", new ImageView(furaoImg)));
+        animais.add(new Animal("Foca.", "Phocidae.", "Mamífero, se alimenta principalmente de peixes.", "Vive em média 50 anos.", "As focas se comunicam entre si através de sons graves.", new ImageView(focaImg)));
         animais.add(new Animal("Castor-europeu.", "Castor fiber.", "Se alimenta de folhas, plantas aquáticas, cascas de árvores e herbáceas que crescem próximos aos rios.", "Vive em média 20 anos.", "Os castores são roedores anfíbios, o que significa que tem excelentes habilidades de natação, podendo ficar submersos até 15 minutos. ", new ImageView(castorImg)));
         animais.add(new Animal("Lontra.", "Lutrinae.", "Carnívoro, se alimenta de peixes, crustáceos, moluscos, aves que ficam na água ou no chão, entre outros.", "Vive em média 25 anos.", "As lontras se enrolam em longos pedaços de algas que crescem no chão até a superfície da água. Elas usam a alga como uma âncora para que possam dormir sem se se preocupar de sair flutuando para longe.", new ImageView(lontraImg)));
         animais.add(new Animal("Bisonte-europeu.", "Bison bonasus.", "Herbívoro, se alimenta de cascas de árvores.", "Vive em média 30 a 50 anos.", "Pode medir até 1,80 m de altura, 3 m de comprimento e pesar 1 tonelada.", new ImageView(bisonteImg)));

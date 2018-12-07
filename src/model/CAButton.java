@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.FileInputStream;
@@ -27,7 +22,7 @@ public class CAButton extends Button {
     private final String BUTTON_FREE_STYLE = "-fx-backgroud-color: transparent; -fx-background-image: url('/resources/buttons/blue_button.png');";
     Canvas canvas = new Canvas(1024, 720);
     GraphicsContext gc = canvas.getGraphicsContext2D(); // classe é usada para emitir chamadas de desenho para um Canvas usando um buffer.
-    
+
     public CAButton(String text) {
         setText(text);
         setPrefHeight(49);
@@ -35,7 +30,7 @@ public class CAButton extends Button {
         setButtonFont();
         setStyle(BUTTON_FREE_STYLE);
         initializeButtonListeners();
-        
+
     }
 
     private void setButtonFont() {

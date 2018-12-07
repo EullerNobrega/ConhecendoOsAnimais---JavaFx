@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repositorio;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class RepositorioAnimaisOceania extends AbstractRepositorio {
         equidna = "resources/imagens/animais/oceania/equidna2.png";
         ornitorrinco = "resources/imagens/animais/oceania/ornitorrinco2.png";
         vombate = "resources/imagens/animais/oceania/vombate2.png";
-        
+
         Image diaboTasImg = new Image(diaboTas);
         Image cisneImg = new Image(cisne);
         Image coalaImg = new Image(coala);
@@ -46,7 +41,7 @@ public class RepositorioAnimaisOceania extends AbstractRepositorio {
         Image equidnaImg = new Image(equidna);
         Image ornitorrincoImg = new Image(ornitorrinco);
         Image vombateImg = new Image(vombate);
-        
+
         animais.add(new Animal("Diabo-da-tasmânia.", "Sarcophilus harrisii.", "Carnívoro, se alimenta de vertebrados, invertebrados, frutos e plantas.", "Vive em média 5 a 6 anos.", "O diabo-da-tasmânia possui uma aparência superficial de urso, exceto pela cauda. Possui porte robusto, com uma cabeça curta, larga e musculosa, focinho curto e orelhas arredondadas.", new ImageView(diaboTasImg)));
         animais.add(new Animal("Cisne negro.", "Cygnus atratus.", "Se alimenta de vegetação aquática.", "Vive em média 25 anos.", "Ao contrário de muitas outras aves aquáticas, os cisnes negros não têm hábitos migratórios. Passam a sua vida no local onde nasceram.", new ImageView(cisneImg)));
         animais.add(new Animal("Coala.", "Phascolarctos cinereus.", "Se alimenta de folhas de eucalipto.", "Vive em média 13 a 18 anos na natureza.", "Por volta dos cinco meses e meio, o coala começa a sair do seu tranquilo abrigo, mas não se afasta muito da mãe e ao primeiro sinal de perigo, torna a entrar ou então chora.", new ImageView(coalaImg)));

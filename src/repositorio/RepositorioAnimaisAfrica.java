@@ -35,7 +35,7 @@ public class RepositorioAnimaisAfrica extends AbstractRepositorio {
         elande = "resources/imagens/animais/africa/elande2.png";
         chacal = "resources/imagens/animais/africa/chacal2.png";
         mabeco = "resources/imagens/animais/africa/mabeco2.png";
-        
+
         Image elefanteImg = new Image(elefante);
         Image leaoImg = new Image(leao);
         Image girafaImg = new Image(girafa);
@@ -46,7 +46,7 @@ public class RepositorioAnimaisAfrica extends AbstractRepositorio {
         Image elandeImg = new Image(elande);
         Image chacalImg = new Image(chacal);
         Image mabecoImg = new Image(mabeco);
-        
+
         animais.add(new Animal("Elefante-africano.", "Loxodonta.", "- Herbívoro, se alimenta de folhas de árvores, ervas, raízes, frutos e gramas.", "Vive em média 60 a 70 anos.", "Um elefante adulto ingere, em média, 100 quilos de alimento por dia. Um filhote pode nascer com até 80 quilos.", new ImageView(elefanteImg)));
         animais.add(new Animal("Leão-africano.", "Panthera leo.", "Se alimenta de carnes como zebras, antílopes, búfalos e javalis.", "Vive em média 10 a 14 anos.", "Os leões pertencem à família de gatos dos animais conhecida como felinos, eles são os segundos maiores felinos, perdendo somente para os tigres.", new ImageView(leaoImg)));
         animais.add(new Animal("Girafa.", "Giraffa.", "Se alimenta de folhas de árvores, principalmente acácias.", "Vive em média 15 a 20 anos.", "As girafas precisam comer grandes quantidades e passam quase 20 horas por dia comendo.", new ImageView(girafaImg)));

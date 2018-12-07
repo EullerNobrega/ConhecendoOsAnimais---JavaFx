@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import javafx.event.EventHandler;
@@ -23,12 +18,12 @@ public class CAContButton extends ImageView {
         initializeButtonListeners();
     }
 
-    public void setIconEntered(ImageView userIcon) {
-            setEffect(new DropShadow());
+    public void setIconeEntrou(ImageView userIcon) {
+        setEffect(new DropShadow());
     }
 
-    public void setIconExit(ImageView userIcon) {
-            setEffect(null);
+    public void setIconeSaiu(ImageView userIcon) {
+        setEffect(null);
     }
 
     public void setButtonPressedStyle() {

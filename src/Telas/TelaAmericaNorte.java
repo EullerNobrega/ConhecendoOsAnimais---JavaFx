@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Telas;
 
 import java.util.ArrayList;
@@ -20,38 +15,40 @@ import repositorio.RepositorioAnimaisAmericaNorte;
  */
 class TelaAmericaNorte {
 
-    private AnchorPane gamePane;
+    private AnchorPane americaNortePane;
     private Stage menuStage;
-    private Scene gameScene;
-    private Stage gameStage;
+    private Scene americaNorteScene;
+    private Stage americaNorteStage;
 
     private ArrayList<ImageView> animaisAmericaNorte;
-    private RepositorioAnimaisAmericaNorte americaNorteDao;
+    private final RepositorioAnimaisAmericaNorte americaNorteDAO;
 
     private static final int GAME_WIDTH = 1300;
     private static final int GAME_HEIGHT = 700;
 
     public TelaAmericaNorte() {
-        initializeStage();
-        americaNorteDao = new RepositorioAnimaisAmericaNorte();
+        americaNorteDAO = new RepositorioAnimaisAmericaNorte().obterInstancia();
+        inicializarStage();
     }
 
-    public void initializeStage() {
-        gamePane = new AnchorPane();
-        gameScene = new Scene(gamePane, GAME_WIDTH, GAME_HEIGHT);
-        gameStage = new Stage();
-        gameStage.setScene(gameScene);
-        gameStage.setTitle("Conhecendo os Animais - By : Euller Nóbrega Honorato");
+    public void inicializarStage() {
+        americaNortePane = new AnchorPane();
+        americaNorteScene = new Scene(americaNortePane, GAME_WIDTH, GAME_HEIGHT);
+        americaNorteStage = new Stage();
+        americaNorteStage.setScene(americaNorteScene);
+        americaNorteStage.setTitle("Conhecendo os Animais - By : Euller Nóbrega Honorato");
     }
     
-     public void createNewGame(Stage menuStage) {
+     public void criarJogoContinente(Stage menuStage) {
         this.menuStage = menuStage;
         this.menuStage.hide();
-        gameStage.show();
+//        criarBackGround();
+//        criarElementosJogo();
+        americaNorteStage.show();
     }
 
     public void animais() {
-        ArrayList<Animal> animais = americaNorteDao.getAnimais();
+        ArrayList<Animal> animais = americaNorteDAO.getAnimais();
         for (Animal a : animais) {
 
         }
@@ -71,7 +68,7 @@ class TelaAmericaNorte {
     }
 
     public void createButtonAlce() {
-        Animal alce = americaNorteDao.consultar("alce");
+        Animal alce = americaNorteDAO.consultar("alce");
         AnimalButton alceButton;
         alceButton = new AnimalButton(alce.getImagemAnimal());
     }
@@ -110,6 +107,14 @@ class TelaAmericaNorte {
 
     public void createButtonUrso() {
         
+    }
+
+    private void criarBackGround() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void criarElementosJogo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

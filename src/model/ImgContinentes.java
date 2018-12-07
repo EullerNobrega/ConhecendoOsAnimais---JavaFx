@@ -13,10 +13,10 @@ public enum ImgContinentes {
     OCEANIA("resources/imagens/Oceania.png"),
     EUROPA("resources/imagens/Europa.png"),
     GROELANDIA("resources/imagens/Groelandia.png");
-    
+
     private String urlImgCont;
-    
-    private ImgContinentes(String urlImgCont){
+
+    private ImgContinentes(String urlImgCont) {
         this.urlImgCont = urlImgCont;
     }
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.File;
@@ -26,7 +21,7 @@ import javafx.scene.text.Font;
 public class InfoLabel extends Label {
 
     public final static String FONT_PATH = "src/resources/fonts/kenpixel.ttf";
-    
+
     public final static String BACKGROUND_IMAGE = "resources/imagens/users/blue_small.png";
 
     public InfoLabel(String text) {
@@ -36,8 +31,8 @@ public class InfoLabel extends Label {
         setText(text);
         setWrapText(true);
         setLabelFont();
-        BackgroundImage backgroundImage = new BackgroundImage(new Image(BACKGROUND_IMAGE,380,49,false,true),
-            BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(BACKGROUND_IMAGE, 380, 49, false, true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         setBackground(new Background(backgroundImage));
     }
 

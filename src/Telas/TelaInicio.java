@@ -2,15 +2,14 @@ package Telas;
 
 import model.CAButton;
 import model.CASubScene;
-import model.IconeUsuarioEscolhido;
+import model.PainelEscolhaIcone;
 import model.InfoLabel;
-import model.IconeUsuario;
+import model.Icone;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -35,20 +34,18 @@ public final class TelaInicio {
 
     private final String FONT_PATH = "src/resources/fonts/KarmaFuture.ttf";
 
-    private AnchorPane painelPrincipal;
-    private Scene scenePrincipal;
-    private Stage stagePrincipal;
+    private final AnchorPane painelPrincipal;
+    private final Scene scenePrincipal;
+    private final Stage stagePrincipal;
 
     private CASubScene ajudaSubScene;
     private CASubScene creditosSubScene;
     private CASubScene escolhaUsuarioSubScene;
+    private CASubScene sceneEsconder;
 
-    private CASubScene sceneToHide;
+    List<CAButton> menuButtons; // Botoes de subscena
 
-    List<CAButton> menuButtons;
-
-    List<IconeUsuarioEscolhido> iconList;
-    private IconeUsuario choosenIcon;
+    private Icone escolhaIcone;
 
     public TelaInicio() {
         menuButtons = new ArrayList<>();
@@ -57,156 +54,14 @@ public final class TelaInicio {
         this.stagePrincipal = new Stage();
         this.stagePrincipal.setScene(scenePrincipal);
         this.stagePrincipal.setTitle("Conhecendo os Animais - By : Euller Nóbrega Honorato");
-        criarBackGround();
-        criarTitulo();
-        createButtons();
-        createSubsScenes();
+        criarBackGround(); // Cria a imagem de fundo
+        criarTitulo(); // Desenha o titulo "Conhecendo os animais" na tela inicial
+        createButtons(); // Cria todos os botoes da tela inicial
+        criarSubsScenes(); // Cria todas as subScenes da tela inicial
     }
 
-    public Stage getMainStage() {
+    public Stage getMainStage() { // Retorna o stage da  tela
         return stagePrincipal;
-    }
-
-    public void showSubScene(CASubScene subscene) {
-        if (sceneToHide != null) {
-            sceneToHide.moveSubScene();
-        }
-        subscene.moveSubScene();
-        sceneToHide = subscene;
-    }
-
-    public void createSubsScenes() {
-        ajudaSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(ajudaSubScene);
-
-        creditosSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(creditosSubScene);
-
-        escolhaUsuarioSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(escolhaUsuarioSubScene);
-
-        createUserChooserSubScene();
-    }
-
-    private void createUserChooserSubScene() {
-        escolhaUsuarioSubScene = new CASubScene();
-        painelPrincipal.getChildren().add(escolhaUsuarioSubScene);
-
-        InfoLabel chooseUserLabel = new InfoLabel(" Escolha seu animal");
-        chooseUserLabel.setLayoutX(210);
-        chooseUserLabel.setLayoutY(30);
-        escolhaUsuarioSubScene.getPane().getChildren().add(chooseUserLabel);
-        escolhaUsuarioSubScene.getPane().getChildren().add(createIconToChoose());
-        escolhaUsuarioSubScene.getPane().getChildren().add(createButtonStart());
-    }
-
-    private TilePane createIconToChoose() {
-        TilePane box = new TilePane();
-        iconList = new ArrayList<>();
-        for (IconeUsuario icon : IconeUsuario.values()) {
-            IconeUsuarioEscolhido iconToPick = new IconeUsuarioEscolhido(icon);
-            iconList.add(iconToPick);
-            box.getChildren().add(iconToPick);
-            iconToPick.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    for (IconeUsuarioEscolhido icon : iconList) {
-                        icon.setIsCircleChoosen(false);
-                    }
-                    iconToPick.setIsCircleChoosen(true);
-                    choosenIcon = iconToPick.getUserIcon();
-                }
-            }
-            );
-        }
-        box.setHgap(20);
-        box.setVgap(20);
-        box.setLayoutX(110);
-        box.setLayoutY(100);
-        return box;
-    }
-
-    private CAButton createButtonStart() {
-        CAButton startButton = new CAButton("start");
-        startButton.setLayoutX(550);
-        startButton.setLayoutY(460);
-
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (choosenIcon != null) {
-                    TelaJogo gameManager = new TelaJogo();
-                    gameManager.createNewGame(stagePrincipal, choosenIcon);
-                }
-            }
-        });
-
-        return startButton;
-    }
-
-    public void createButtons() {
-        criarStartButton();
-        criarCreditsButton();
-        criarHelpButton();
-        criarExitButton();
-    }
-
-    public void criarStartButton() {
-        CAButton startButton = new CAButton("JOGAR");
-        addMenuButton(startButton);
-
-        startButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                showSubScene(escolhaUsuarioSubScene);
-            }
-        });
-    }
-
-    public void criarCreditsButton() {
-        CAButton creditsButton = new CAButton("Creditos");
-        addMenuButton(creditsButton);
-
-        creditsButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                showSubScene(creditosSubScene);
-
-            }
-        });
-    }
-
-    public void criarHelpButton() {
-        CAButton helpAButton = new CAButton("AJUDA");
-        addMenuButton(helpAButton);
-
-        helpAButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                showSubScene(ajudaSubScene);
-
-            }
-        });
-    }
-
-    public void criarExitButton() {
-        CAButton exitButton = new CAButton("SAIR");
-        addMenuButton(exitButton);
-        exitButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                stagePrincipal.close();
-            }
-        }
-        );
-
-    }
-
-    public void addMenuButton(CAButton button) {
-        button.setLayoutX(MENU_BUTTONS_STARTS_X);
-        button.setLayoutY(MENU_BUTTONS_STARTS_Y + menuButtons.size() * 100);
-        menuButtons.add(button);
-        painelPrincipal.getChildren().add(button);
     }
 
     public void criarBackGround() {
@@ -234,4 +89,129 @@ public final class TelaInicio {
         gc.strokeText("Conhecendo os Animais", 380, 80); // Escreve o contorno do texto
         painelPrincipal.getChildren().add(canvas);
     }
+
+    public void createButtons() {
+        criarJogarButton();
+        criarCreditosButton();
+        criarAjudaButton();
+        criarSairButton();
+    }
+
+    public void addMenuButton(CAButton button) { // Adiciona botoes na Tela inicial
+        button.setLayoutX(MENU_BUTTONS_STARTS_X);
+        button.setLayoutY(MENU_BUTTONS_STARTS_Y + menuButtons.size() * 100); // Espacamento entre botoes
+        menuButtons.add(button); // Add botao a lista de botoes
+        painelPrincipal.getChildren().add(button);
+    }
+
+    public void criarJogarButton() {
+        CAButton startButton = new CAButton("JOGAR");
+        addMenuButton(startButton);
+
+        startButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(escolhaUsuarioSubScene);
+        });
+    }
+
+    private CAButton criarButtonStart() { // Criar botao dentro de JOGAR para iniciar a Tela Jogo
+        CAButton startButton = new CAButton("start");
+        startButton.setLayoutX(550);
+        startButton.setLayoutY(460);
+
+        startButton.setOnAction((ActionEvent event) -> {
+            if (escolhaIcone != null) {
+                TelaJogo jogoInicio = new TelaJogo();
+                jogoInicio.criarNovoJogo(stagePrincipal, escolhaIcone);
+            }
+        });
+
+        return startButton;
+    }
+
+    public void criarCreditosButton() {
+        CAButton creditosButton = new CAButton("Creditos");
+        addMenuButton(creditosButton);
+
+        creditosButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(creditosSubScene);
+        });
+    }
+
+    public void criarAjudaButton() {
+        CAButton ajudaAButton = new CAButton("AJUDA");
+        addMenuButton(ajudaAButton);
+
+        ajudaAButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(ajudaSubScene);
+        });
+    }
+
+    public void criarSairButton() {
+        CAButton sairButton = new CAButton("SAIR");
+        addMenuButton(sairButton);
+        sairButton.setOnAction((ActionEvent event) -> {
+            stagePrincipal.close();
+        });
+    }
+
+    public void criarSubsScenes() {
+        ajudaSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(ajudaSubScene);
+
+        creditosSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(creditosSubScene);
+
+        escolhaUsuarioSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(escolhaUsuarioSubScene);
+
+        criarEscolhaUsuarioSubScene();
+    }
+
+    public void mostrarSubScene(CASubScene subscene) {
+        if (sceneEsconder != null) {
+            sceneEsconder.moveSubScene();
+        }
+        subscene.moveSubScene();
+        sceneEsconder = subscene;
+    }
+
+    private void criarEscolhaUsuarioSubScene() {
+        escolhaUsuarioSubScene = new CASubScene();
+        painelPrincipal.getChildren().add(escolhaUsuarioSubScene);
+
+        InfoLabel escolhaUsuarioLabel = new InfoLabel(" Escolha seu animal");
+        escolhaUsuarioLabel.setLayoutX(210);
+        escolhaUsuarioLabel.setLayoutY(30);
+        escolhaUsuarioSubScene.getPane().getChildren().add(escolhaUsuarioLabel);
+        escolhaUsuarioSubScene.getPane().getChildren().add(criarIconeEscolha());
+        escolhaUsuarioSubScene.getPane().getChildren().add(criarButtonStart());
+    }
+
+    private TilePane criarIconeEscolha() {
+        List<PainelEscolhaIcone> iconeList; // Opcoes de escolha de icone
+        iconeList = new ArrayList<>();
+        TilePane box = new TilePane();
+
+        for (Icone icon : Icone.values()) {
+            PainelEscolhaIcone iconeSelecionado;
+            iconeSelecionado = new PainelEscolhaIcone(icon);
+            
+            iconeList.add(iconeSelecionado);
+            box.getChildren().add(iconeSelecionado); // Adiciona icones ao box de icones
+            
+            iconeSelecionado.setOnMouseClicked((MouseEvent event) -> {
+                iconeList.forEach((icon1) -> {
+                    icon1.setIsCirculoEscolhido(false);
+                });
+                iconeSelecionado.setIsCirculoEscolhido(true);
+                escolhaIcone = iconeSelecionado.getUsuarioIcone();
+            });
+        }
+        box.setHgap(20);
+        box.setVgap(20);
+        box.setLayoutX(110);
+        box.setLayoutY(100);
+        return box;
+    }
+
 }

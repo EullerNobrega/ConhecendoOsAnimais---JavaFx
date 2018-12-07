@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -13,6 +7,7 @@ import javafx.scene.image.ImageView;
  * @author Euller
  */
 public class Animal {
+
     private String nome;
     private String nomeCientifico;
     private String alimentacao;
@@ -81,7 +76,5 @@ public class Animal {
     public String toString() {
         return "Animal\n" + "Nome = " + nome + "\nNome Científico = " + nomeCientifico + "\nAlimentacao = " + alimentacao + "\nEstimativa de vida = " + estimativaVida + "\nCuriosidade = " + curiosidade;
     }
-    
-    
-    
+
 }

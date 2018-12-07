@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repositorio;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class RepositorioAnimaisAsia extends AbstractRepositorio {
         leopardo = "resources/imagens/animais/asia/leopardo_neves2.png";
         pandaVermelho = "resources/imagens/animais/asia/panda_vermelho2.png";
         orangotango = "resources/imagens/animais/asia/orangotango2.png";
-        
+
         Image pavaoImg = new Image(pavao);
         Image pandaImg = new Image(panda);
         Image tigreImg = new Image(tigre);
@@ -46,8 +41,7 @@ public class RepositorioAnimaisAsia extends AbstractRepositorio {
         Image leopardoImg = new Image(leopardo);
         Image pandaVermelhoImg = new Image(pandaVermelho);
         Image orangotangoImg = new Image(orangotango);
-        
-        
+
         animais.add(new Animal("Pavão.", "Pavo cristatus.", "Se alimenta de insetos, pequenos invertebrados, sementes e frutas.", "Vive em média 10 a 25 anos.", "O pavão só consegue voar depois de correr uma determinada distância. Seu vôo é barulhento e desajeitado.", new ImageView(pavaoImg)));
         animais.add(new Animal("Panda-gigante.", "Ailuropoda melanoleuca.", "Herbívoro, se alimenta de folhas de bambus .", "Vive em média 20 anos na natureza.", "Os pandas gigantes são geralmente solitários.", new ImageView(pandaImg)));
         animais.add(new Animal("Tigre.", "Panthera tigres.", "Carnívoro, se alimenta de javali, cervos, crocodilos, entre outros.", "Vive em média 16 a 18 anos em cativeiro.", "Ao contrário de muitos felinos, os tigres são nadadores fortes e muitas vezes intencionalmente banham-se em lagoas, lagos e rios, como forma de se refrescar no calor do dia.", new ImageView(tigreImg)));

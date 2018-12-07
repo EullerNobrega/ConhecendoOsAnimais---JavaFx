@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package repositorio;
 
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class RepositorioAnimaisAmericaSul extends AbstractRepositorio {
         condor = "resources/imagens/animais/america_sul/condor_andes.jpg";
         vicunha = "resources/imagens/animais/america_sul/vicunha_2.png";
         beijaflor = "resources/imagens/animais/america_sul/beija_flor2.png";
-        
+
         Image quatiImg = new Image(quati);
         Image jacareImg = new Image(jacare);
         Image abroniaImg = new Image(abronia);
@@ -46,7 +41,7 @@ public class RepositorioAnimaisAmericaSul extends AbstractRepositorio {
         Image condorImg = new Image(condor);
         Image vicunhaImg = new Image(vicunha);
         Image beijaflorImg = new Image(beijaflor);
-        
+
         animais.add(new Animal("Quati-de-cauda-anelada.", "Nasua nasua.", "Onívoro, se alimenta de insetos, larvas, aranhas, serpentes, crustáceos e peixes.", "Vive em média 7 anos.", "O quati-de-cauda-anelada é um mamífero diurno, capaz de viver tanto nos solos como nas árvores  como nas árvores.", new ImageView(quatiImg)));
         animais.add(new Animal("Jacaré-do-pantanal.", "Caiman yacare.", "Se alimenta de peixes, moluscos e crustáceos.", "Vive em média 80 anos.", "Põe seus ovos, que pode ser uma quantidade de 20 a 30 dentro de um ninho na mata nos meses de janeiro a março.", new ImageView(jacareImg)));
         animais.add(new Animal("Abronia (lagarto).", "Abronia.", "É vivíparo.", "Vive em média 15 anos.", "Ao contrário de outros membros da família, esses lagartos possuem quatro pernas e hábitos arborícolas.", new ImageView(abroniaImg)));
