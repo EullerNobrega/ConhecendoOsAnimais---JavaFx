@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Euller/Downloads/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/jogoconhecendoanimais/Main.java</file>
-            <file>file:/C:/Users/Euller/Downloads/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/Telas/TelaInicio.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/Telas/TelaAmericaNorte.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/CASubScene.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/CAButton.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/CAExitButton.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/CAContScene.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/Animal.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/AnimalButton.java</file>
+            <file>file:/D:/Projetos/Netbeans/ConhecendoOsAnimais---JavaFx/JogoConhecendoAnimais/src/model/CASubSceneAnimal.java</file>
         </group>
     </open-files>
 </project-private>

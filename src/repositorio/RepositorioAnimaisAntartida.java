@@ -19,13 +19,12 @@ public class RepositorioAnimaisAntartida extends AbstractRepositorio {
 
     @Override
     public void init() {
-        final String pinguim, krill, orca, skua, baleia, urso, rena, coruja, beluga, narval;
+        final String pinguim, krill, orca, skua, baleia, rena, coruja, beluga, narval;
         pinguim = "resources/imagens/animais/antartida/pinguim2.png";
         krill = "resources/imagens/animais/antartida/krill2.png";
         orca = "resources/imagens/animais/antartida/orca2.png";
         skua = "resources/imagens/animais/antartida/skua2.png";
         baleia = "resources/imagens/animais/antartida/baleia_franca2.png";
-        urso = "resources/imagens/animais/antartida/urso_polar2.png";
         rena = "resources/imagens/animais/antartida/coruja_neves2.png";
         coruja = "resources/imagens/animais/antartida/coruja_neves2.png";
         beluga = "resources/imagens/animais/antartida/coruja_neves2.png";
@@ -36,7 +35,6 @@ public class RepositorioAnimaisAntartida extends AbstractRepositorio {
         Image orcaImg = new Image(orca);
         Image skuaImg = new Image(skua);
         Image baleiaImg = new Image(baleia);
-        Image ursoImg = new Image(urso);
         Image renaImg = new Image(rena);
         Image corujaImg = new Image(coruja);
         Image belugaImg = new Image(beluga);
@@ -47,7 +45,6 @@ public class RepositorioAnimaisAntartida extends AbstractRepositorio {
         animais.add(new Animal("Orca.", "Orcinus orca.", "Se alimenta de peixes, moluscos, aves, tartarugas, focas, tubarões e baleias.", "Vive em média 17 a 29 anos em cativeiro, na natureza chegam a 80 anos.", "Mesmo tendo fama de “baleias assassinas”, as orcas não agridem humanos. Os únicos incidentes registrados ocorreram quando estes mamíferos estavam em cativeiro.", new ImageView(orcaImg)));
         animais.add(new Animal("Skua.", "Stercorarius.", "Se alimenta de aves pequenas, peixes, vermes, insetos, algas e líquens.", "Vive em média 50 a 60 anos.", "Vive solitário em alto mar e vem para a costa somente na época do acasalamento.", new ImageView(skuaImg)));
         animais.add(new Animal("Baleia franca.", "Eubalaena.", "Se alimenta de pequenos crustáceos, como o krill.", "Vive em média 70 anos.", "É um animal robusto e forte, que pode pesar 100 toneladas. Alcançam entre 13,5 m a 16,5 m de comprimento. ", new ImageView(baleiaImg)));
-        animais.add(new Animal("Urso-polar.", "Ursus maritimus.", "Se alimenta de focas, pequenos mamíferos, peixes, aves, ovos e vegetação.", "Vive em média 18 a 30 anos.", "Por baixo de toda pelagem branca, os ursos polares têm a pele preta para absorver melhor o calor do sol. A pelagem cresce até o topo das suas garras, o que os protege contra as superfícies geladas.", new ImageView(ursoImg)));
         animais.add(new Animal("Rena.", "Rangifer tarandus.", "Se alimenta de bambus, folhas de sempre-vivas, ervas rasteiras, ovos, pequenos pássaros e líquenes.", "Vive em média 15 anos.", "Quando nascem, não têm galhos nas cabeças, mas eles começam a crescer com 15 dias de vida.", new ImageView(renaImg)));
         animais.add(new Animal("Coruja-das-neves.", "Bubo scandiacus.", "Se alimenta de lemingues, aves, coelhos, carniça e peixe.", "Vive em média 9 anos.", "Na estação quente, a coruja regula a temperatura estendendo e batendo as asas. Estas aves pousam frequentemente sobre as elevações, com os olhos semicerrados, mas sempre alertas a qualquer ruído.", new ImageView(corujaImg)));
         animais.add(new Animal("Beluga.", "Delphinapterus leucas.", "Se alimenta de peixes, salmão, crustáceos e outros invertebrados do mar.", "Vive em média 35 a 50 anos.", "É uma das menores baleias existentes, mede entre 4 e 6 metros de comprimento e pesa menos de 1200 quilos.", new ImageView(belugaImg)));

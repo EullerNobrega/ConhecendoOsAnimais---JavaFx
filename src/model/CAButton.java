@@ -3,8 +3,6 @@ package model;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javafx.event.EventHandler;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
@@ -20,8 +18,6 @@ public class CAButton extends Button {
     private final String FONT_PATH = "src/resources/fonts/kenpixel.ttf";
     private final String BUTTON_PRESSED_STYLE = "-fx-backgroud-color: transparent; -fx-background-image: url('/resources/buttons/blue_button_pressed.png');";
     private final String BUTTON_FREE_STYLE = "-fx-backgroud-color: transparent; -fx-background-image: url('/resources/buttons/blue_button.png');";
-    Canvas canvas = new Canvas(1024, 720);
-    GraphicsContext gc = canvas.getGraphicsContext2D(); // classe é usada para emitir chamadas de desenho para um Canvas usando um buffer.
 
     public CAButton(String text) {
         setText(text);

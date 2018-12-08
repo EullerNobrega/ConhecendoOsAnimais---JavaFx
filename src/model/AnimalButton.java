@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -13,15 +14,16 @@ import javafx.scene.input.MouseEvent;
 public class AnimalButton extends Button {
 
     public AnimalButton(ImageView animal) {
-        setPrefHeight(30);
-        setPrefWidth(100);
+        animal.setFitHeight(320);
+        animal.setFitWidth(220);
+        setGraphic(animal);
     }
 
     public void initializeButtonListeners() {
         setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                setEffect(new DropShadow());
+                setEffect(new DropShadow(10, Color.CHARTREUSE));
             }
         });
 
@@ -29,6 +31,13 @@ public class AnimalButton extends Button {
             @Override
             public void handle(MouseEvent event) {
                 setEffect(null);
+            }
+        });
+        
+        setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                
             }
         });
     }

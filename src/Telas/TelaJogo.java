@@ -203,7 +203,7 @@ public class TelaJogo {
             }
             usuarioIcone.setRotate(angulo);
             if (usuarioIcone.getLayoutX() > 0) {
-                usuarioIcone.setLayoutX(usuarioIcone.getLayoutX() - 3);
+                usuarioIcone.setLayoutX(usuarioIcone.getLayoutX() - 4);
             }
         }
         
@@ -213,19 +213,19 @@ public class TelaJogo {
             }
             usuarioIcone.setRotate(angulo);
             if (usuarioIcone.getLayoutX() < 1250) {
-                usuarioIcone.setLayoutX(usuarioIcone.getLayoutX() + 3);
+                usuarioIcone.setLayoutX(usuarioIcone.getLayoutX() + 4);
             }
         }
         
         if (isSetaBaixoPressionada && !isSetaDireitaPressionada && !isSetaCimaPressionada && !isSetaEsquerdaPressionada) { // Aperta tecla para baixo
             if (usuarioIcone.getLayoutY() < 650) {
-                usuarioIcone.setLayoutY(usuarioIcone.getLayoutY() + 3);
+                usuarioIcone.setLayoutY(usuarioIcone.getLayoutY() + 4);
             }
         }
         
         if (isSetaCimaPressionada && !isSetaEsquerdaPressionada && !isSetaBaixoPressionada && !isSetaDireitaPressionada) { // Aperta tecla para cima
             if (usuarioIcone.getLayoutY() > 0) {
-                usuarioIcone.setLayoutY(usuarioIcone.getLayoutY() - 3);
+                usuarioIcone.setLayoutY(usuarioIcone.getLayoutY() - 4);
             }
         }
         
@@ -292,7 +292,6 @@ public class TelaJogo {
         }
         
         if (verificaPosicao(58, 391, 24, 303, americaDoNorte)) {
-            
             americaDoNorte.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
