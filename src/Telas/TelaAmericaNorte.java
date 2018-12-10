@@ -1,5 +1,7 @@
 package Telas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -9,7 +11,9 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import model.Animal;
 import model.AnimalButton;
+import model.CAButton;
 import model.CASubSceneAnimal;
+import model.Comida;
 import repositorio.RepositorioAnimaisAmericaNorte;
 
 /**
@@ -73,31 +77,14 @@ class TelaAmericaNorte {
         box.setVgap(20);
         return box;
     }
-    
-//    public void createButtonFecharScene(){
-//        CAExitButton fechar = new CAExitButton();
-//        raposaSc,
-//        ursoSc,
-//        loboSc,
-//        oncaSc, 
-//        alceSc,
-//        linceSc, 
-//        guaxinimSc,
-//        gambaSc,
-//        doninhaSc,
-//        ursoPolarSc
-//    }
 
     public void createButtonAlce(TilePane boxPane) {
         Animal alce = americaNorteDAO.consultar("Alce.");
         AnimalButton alceButton;
         alceButton = new AnimalButton(alce.getImagemAnimal());
         boxPane.getChildren().add(alceButton);
-        alceButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(alceSc);
-            }
+        alceButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(alceSc);
         });
     }
 
@@ -106,11 +93,8 @@ class TelaAmericaNorte {
         AnimalButton ursoPolarButton;
         ursoPolarButton = new AnimalButton(urso.getImagemAnimal());
         boxPane.getChildren().add(ursoPolarButton);
-        ursoPolarButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(ursoPolarSc);
-            }
+        ursoPolarButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(ursoPolarSc);
         });
     }
 
@@ -119,11 +103,8 @@ class TelaAmericaNorte {
         AnimalButton doninhaButton;
         doninhaButton = new AnimalButton(doninha.getImagemAnimal());
         boxPane.getChildren().add(doninhaButton);
-        doninhaButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(doninhaSc);
-            }
+        doninhaButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(doninhaSc);
         });
     }
 
@@ -132,11 +113,8 @@ class TelaAmericaNorte {
         AnimalButton gambaButton;
         gambaButton = new AnimalButton(gamba.getImagemAnimal());
         boxPane.getChildren().add(gambaButton);
-        gambaButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(gambaSc);
-            }
+        gambaButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(gambaSc);
         });
 
     }
@@ -146,11 +124,8 @@ class TelaAmericaNorte {
         AnimalButton guaxinimButton;
         guaxinimButton = new AnimalButton(guaxinim.getImagemAnimal());
         boxPane.getChildren().add(guaxinimButton);
-        guaxinimButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(guaxinimSc);
-            }
+        guaxinimButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(guaxinimSc);
         });
 
     }
@@ -160,11 +135,8 @@ class TelaAmericaNorte {
         AnimalButton linceButton;
         linceButton = new AnimalButton(lince.getImagemAnimal());
         boxPane.getChildren().add(linceButton);
-        linceButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(linceSc);
-            }
+        linceButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(linceSc);
         });
 
     }
@@ -174,11 +146,8 @@ class TelaAmericaNorte {
         AnimalButton loboButton;
         loboButton = new AnimalButton(lobo.getImagemAnimal());
         boxPane.getChildren().add(loboButton);
-        loboButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(loboSc);
-            }
+        loboButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(loboSc);
         });
 
     }
@@ -188,24 +157,18 @@ class TelaAmericaNorte {
         AnimalButton oncaButton;
         oncaButton = new AnimalButton(onca.getImagemAnimal());
         boxPane.getChildren().add(oncaButton);
-        oncaButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(oncaSc);
-            }
+        oncaButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(oncaSc);
         });
     }
 
     public void createButtonRaposa(TilePane boxPane) {
-        Animal alce = americaNorteDAO.consultar("Raposa-vermelha.");
+        Animal raposa = americaNorteDAO.consultar("Raposa-vermelha.");
         AnimalButton raposaButton;
-        raposaButton = new AnimalButton(alce.getImagemAnimal());
+        raposaButton = new AnimalButton(raposa.getImagemAnimal());
         boxPane.getChildren().add(raposaButton);
-        raposaButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(raposaSc);
-            }
+        raposaButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(raposaSc);
         });
     }
 
@@ -214,43 +177,50 @@ class TelaAmericaNorte {
         AnimalButton ursoButton;
         ursoButton = new AnimalButton(urso.getImagemAnimal());
         boxPane.getChildren().add(ursoButton);
-        ursoButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                mostrarSubScene(ursoPolarSc);
-            }
+        ursoButton.setOnAction((ActionEvent event) -> {
+            mostrarSubScene(ursoSc);
         });
     }
 
     public void criarSubsScenes() {
-        raposaSc = new CASubSceneAnimal();
+        Animal raposa = americaNorteDAO.consultar("Raposa-vermelha.");
+        raposaSc = new CASubSceneAnimal(raposa);
         americaNortePainel.getChildren().add(raposaSc);
 
-        ursoSc = new CASubSceneAnimal();
+        Animal urso = americaNorteDAO.consultar("Urso-pardo.");
+        ursoSc = new CASubSceneAnimal(urso);
         americaNortePainel.getChildren().add(ursoSc);
 
-        loboSc = new CASubSceneAnimal();
+        Animal lobo = americaNorteDAO.consultar("Lobo.");
+        loboSc = new CASubSceneAnimal(lobo);
         americaNortePainel.getChildren().add(loboSc);
 
-        oncaSc = new CASubSceneAnimal();
+        Animal onca = americaNorteDAO.consultar("Onça-parda.");
+        oncaSc = new CASubSceneAnimal(onca);
         americaNortePainel.getChildren().add(oncaSc);
 
-        alceSc = new CASubSceneAnimal();
+        Animal alce = americaNorteDAO.consultar("Alce.");
+        alceSc = new CASubSceneAnimal(alce);
         americaNortePainel.getChildren().add(alceSc);
 
-        linceSc = new CASubSceneAnimal();
+        Animal lince = americaNorteDAO.consultar("Lince.");
+        linceSc = new CASubSceneAnimal(lince);
         americaNortePainel.getChildren().add(linceSc);
 
-        guaxinimSc = new CASubSceneAnimal();
+        Animal guaxinim = americaNorteDAO.consultar("Guaxinim.");
+        guaxinimSc = new CASubSceneAnimal(guaxinim);
         americaNortePainel.getChildren().add(guaxinimSc);
 
-        gambaSc = new CASubSceneAnimal();
+        Animal gamba = americaNorteDAO.consultar("Gambá.");
+        gambaSc = new CASubSceneAnimal(gamba);
         americaNortePainel.getChildren().add(gambaSc);
 
-        doninhaSc = new CASubSceneAnimal();
+        Animal doninha = americaNorteDAO.consultar("Doninha-anã.");
+        doninhaSc = new CASubSceneAnimal(doninha);
         americaNortePainel.getChildren().add(doninhaSc);
 
-        ursoPolarSc = new CASubSceneAnimal();
+        Animal ursoPolar = americaNorteDAO.consultar("Urso-polar.");
+        ursoPolarSc = new CASubSceneAnimal(ursoPolar);
         americaNortePainel.getChildren().add(ursoPolarSc);
 
     }
@@ -262,5 +232,6 @@ class TelaAmericaNorte {
         subscene.moveSubScene();
         sceneEsconder = subscene;
     }
+
 
 }

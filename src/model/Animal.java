@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import javafx.scene.image.ImageView;
 
 /**
@@ -13,15 +14,18 @@ public class Animal {
     private String alimentacao;
     private String estimativaVida;
     private String curiosidade;
-    private ImageView imagemAnimal;
+    private ImageView imagemAnimal, imagemAnimal2;
+    private final Comida comida;
 
-    public Animal(String nome, String nomeCientifico, String alimentacao, String estimativaVida, String curiosidade, ImageView imagemAnimal) {
+    public Animal(String nome, String nomeCientifico, String alimentacao, String estimativaVida, String curiosidade, ImageView imagemAnimal, ImageView imagemAnimal2, Comida comida) {
         this.nome = nome;
         this.nomeCientifico = nomeCientifico;
         this.alimentacao = alimentacao;
         this.estimativaVida = estimativaVida;
         this.curiosidade = curiosidade;
         this.imagemAnimal = imagemAnimal;
+        this.imagemAnimal2 = imagemAnimal2;
+        this.comida = comida;
     }
 
     public String getNome() {
@@ -58,6 +62,14 @@ public class Animal {
 
     public void setImagemAnimal(ImageView imagemAnimal) {
         this.imagemAnimal = imagemAnimal;
+    }
+
+    public ImageView getImagemAnimal2() {
+        return imagemAnimal2;
+    }
+
+    public void setImagemAnimal2(ImageView imagemAnimal2) {
+        this.imagemAnimal2 = imagemAnimal2;
     }
 
     public void setEstimativaVida(String estimativaVida) {

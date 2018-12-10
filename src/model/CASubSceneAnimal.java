@@ -1,16 +1,16 @@
 package model;
 
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.SubScene;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 /**
@@ -21,9 +21,9 @@ public class CASubSceneAnimal extends SubScene {
 
     private final String BACKGROUND_IMAGE = "/resources/buttons/grey_panel.png";
     private boolean isEscondido = true;
-    private final CAExitButton fechar;
+    private final Animal animal;
 
-    public CASubSceneAnimal() {
+    public CASubSceneAnimal(Animal animal) {
         super(new AnchorPane(), 1300, 690);
         prefWidth(1300);
         prefHeight(690);
@@ -35,13 +35,30 @@ public class CASubSceneAnimal extends SubScene {
 
         root2.setBackground(new Background(image));
 
-        fechar = new CAExitButton(this);
-        fechar.setLayoutX(1180);
-        fechar.setLayoutY(30);
-        this.getPane().getChildren().add(fechar);
+        this.animal = animal;
+
+        SubSceneElementos();
 
         setLayoutX(1320);
         setLayoutY(5);
+    }
+
+    public void SubSceneElementos() {
+        ImageView imagemAnimal = animal.getImagemAnimal2();
+        imagemAnimal.setLayoutX(100);
+        imagemAnimal.setLayoutY(120);
+        imagemAnimal.setEffect(new DropShadow(20, Color.SLATEGREY));
+        this.getPane().getChildren().add(imagemAnimal);
+
+        CAExitButton fechar = new CAExitButton(this);
+        fechar.setLayoutX(1180);
+        fechar.setLayoutY(30);
+        this.getPane().getChildren().add(fechar);
+        
+        ComidaLabel comidaLabel = new ComidaLabel("Qual alimento esse \n     animal come?");
+        comidaLabel.setLayoutX(480);
+        comidaLabel.setLayoutY(50);
+        this.getPane().getChildren().add(comidaLabel);
     }
 
     public void moveSubScene() {
@@ -55,6 +72,8 @@ public class CASubSceneAnimal extends SubScene {
         }
         transition.play();
     }
+    
+
 
     public AnchorPane getPane() {
         return (AnchorPane) this.getRoot();
