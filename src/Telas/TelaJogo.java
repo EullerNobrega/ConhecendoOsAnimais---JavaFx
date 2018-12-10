@@ -317,7 +317,7 @@ public class TelaJogo {
                 System.out.println("Entrou");
                 if (event.getCode() == KeyCode.ENTER) {
                     System.out.println("Abrindo tela de americaDoSul");
-                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
+//                    TelaAmericaSul telaAmericaSul = new TelaAmericaSul();
                 }
             });
             

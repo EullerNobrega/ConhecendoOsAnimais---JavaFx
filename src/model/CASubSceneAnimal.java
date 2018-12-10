@@ -2,11 +2,13 @@ package model;
 
 import java.util.List;
 import javafx.animation.TranslateTransition;
+import javafx.event.EventHandler;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -24,9 +26,9 @@ public class CASubSceneAnimal extends SubScene {
     private final String BACKGROUND_IMAGE = "/resources/buttons/grey_panel.png";
     private boolean isEscondido = true;
     private final Animal animal;
-    private final List<String> comidas;
+    private final List<Comida> comidas;
 
-    public CASubSceneAnimal(Animal animal, List<String> comidas) {
+    public CASubSceneAnimal(Animal animal, List<Comida> comidas) {
         super(new AnchorPane(), 1300, 690);
         prefWidth(1300);
         prefHeight(690);
@@ -43,7 +45,7 @@ public class CASubSceneAnimal extends SubScene {
         setLayoutY(5);
     }
 
-    public void SubSceneElementos() {
+    public boolean SubSceneElementos() {
         ImageView imagemAnimal = animal.getImagemAnimal2();
         imagemAnimal.setLayoutX(100);
         imagemAnimal.setLayoutY(120);
@@ -61,24 +63,27 @@ public class CASubSceneAnimal extends SubScene {
         this.getPane().getChildren().add(comidaLabel);
 
         int i = 0;
-        for (String img : comidas) {
-            
-            ImageView comidaImg = new ImageView(img);
-            Button buttonComida = new AnimalButton(comidaImg);
-            comidaImg.setFitHeight(120);
-            comidaImg.setFitWidth(120);
+        for (Comida img : comidas) {
+
+            ImageView comidaImg = new ImageView(img.getUrlComidaIcon());
+            ComidaButton buttonComida = new ComidaButton(comidaImg, img.getUrlComidaIcon());
+            buttonComida.setGraphic(comidaImg);
             buttonComida.setLayoutX(500 + i);
             buttonComida.setLayoutY(300);
+            buttonComida.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if(buttonComida.getComida().equals(animal.getComida().getUrlComidaIcon())){
+                        System.out.println("Acertou");
+                    }else{
+                        System.out.println("Errou");
+                    }
+                }
+            });
             this.getPane().getChildren().add(buttonComida);
             i += 200;
         }
-
-//            ImageView comidaImg = new ImageView(comidas.get(0).toString());
-//            this.getPane().getChildren().add(comidaImg);
-//            ImageView comidaImg2 = new ImageView(comidas.get(1).toString());
-//            this.getPane().getChildren().add(comidaImg2);
-//            ImageView comidaImg3 = new ImageView(comidas.get(2).toString());
-//            this.getPane().getChildren().add(comidaImg3);
+        return false;
     }
 
     public void moveSubScene() {

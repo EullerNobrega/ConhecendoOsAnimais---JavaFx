@@ -1,6 +1,5 @@
 package model;
 
-import java.util.List;
 import javafx.scene.image.ImageView;
 
 /**
@@ -82,6 +81,10 @@ public class Animal {
 
     public void setCuriosidade(String curiosidade) {
         this.curiosidade = curiosidade;
+    }
+
+    public Comida getComida() {
+        return comida;
     }
 
     @Override
