@@ -31,14 +31,14 @@ public class CASubSceneInfoAnimal extends SubScene {
     private final String BACKGROUND_IMAGE = "/resources/buttons/grey_panel.png";
     private boolean isEscondido = true;
     private final Animal animalInfo;
-    private final Label info = new Label();
+    private Label info;
 
     public CASubSceneInfoAnimal(Animal animal) {
-        super(new AnchorPane(), 900, 450);
-        prefWidth(900);
-        prefHeight(450);
+        super(new AnchorPane(), 840, 480);
+        prefWidth(840);
+        prefHeight(480);
         BackgroundImage image;
-        image = new BackgroundImage(new Image(BACKGROUND_IMAGE, 1280, 690, false, true),
+        image = new BackgroundImage(new Image(BACKGROUND_IMAGE, 840, 480, false, true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         AnchorPane root2 = (AnchorPane) this.getRoot();
         root2.setBackground(new Background(image));
@@ -46,22 +46,24 @@ public class CASubSceneInfoAnimal extends SubScene {
         SubSceneElementos();
 
         setLayoutX(1320);
-        setLayoutY(5);
+        setLayoutY(35);
     }
 
     public void SubSceneElementos() {
+        info = new Label(animalInfo.toString());
+        info.prefWidth(840);
+        info.prefHeight(480);
         setLabelFont();
-        info.setLayoutX(900);
-        info.setLayoutY(400);
-        info.setPadding(new Insets(10, 10, 10, 10));
+        info.setPadding(new Insets(30, 40, 30, 40));
         info.setAlignment(Pos.TOP_LEFT);
-        info.setText(animalInfo.toString());
+        
+        this.getPane().getChildren().add(info);
     }
 
     public void moveSubScene() {
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.3), this);
         if (isEscondido) {
-            transition.setToX(-1310);
+            transition.setToX(-980);
             isEscondido = false;
         } else {
             transition.setToX(1310);
@@ -73,9 +75,9 @@ public class CASubSceneInfoAnimal extends SubScene {
     private void setLabelFont() {
         String FONT_PATH = "src/resources/fonts/KarmaFuture.ttf";
         try {
-            info.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 40));
+            info.setFont(Font.loadFont(new FileInputStream(new File(FONT_PATH)), 18));
         } catch (FileNotFoundException ex) {
-            info.setFont(Font.font("Verdana", 40));
+            info.setFont(Font.font("Verdana", 18));
         }
     }
 

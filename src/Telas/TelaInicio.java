@@ -20,6 +20,8 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import model.CadastrarEmArquivo;
+import model.CadastrarPontosArquivo;
 
 /**
  *
@@ -120,8 +122,9 @@ public final class TelaInicio {
 
         startButton.setOnAction((ActionEvent event) -> {
             if (escolhaIcone != null) {
-                TelaJogo jogoInicio = new TelaJogo();
-                jogoInicio.criarNovoJogo(stagePrincipal, escolhaIcone);
+                TelaJogo jogoInicio = new TelaJogo().obterInstancia();
+                Stage stage = new Stage();
+                jogoInicio.criarNovoJogo(stage, escolhaIcone);
             }
         });
 
@@ -150,6 +153,8 @@ public final class TelaInicio {
         CAButton sairButton = new CAButton("SAIR");
         addMenuButton(sairButton);
         sairButton.setOnAction((ActionEvent event) -> {
+            CadastrarPontosArquivo arq = new CadastrarPontosArquivo();
+            arq.gravar();
             stagePrincipal.close();
         });
     }

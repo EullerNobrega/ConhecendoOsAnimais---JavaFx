@@ -89,7 +89,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal\n" + "Nome = " + nome + "\nNome Científico = " + nomeCientifico + "\nAlimentacao = " + alimentacao + "\nEstimativa de vida = " + estimativaVida + "\nCuriosidade = " + curiosidade;
+        return "Nome = " + nome + "\n\nNome Científico = " + nomeCientifico + "\n\nAlimentacao = " + alimentacao + "\n\nEstimativa de vida = " + estimativaVida + "\n\nCuriosidade = " + curiosidade;
     }
 
 }

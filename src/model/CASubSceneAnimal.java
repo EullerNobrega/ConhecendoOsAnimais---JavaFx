@@ -1,10 +1,10 @@
 package model;
 
+import Telas.TelaJogo;
 import java.util.List;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.scene.SubScene;
-import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,6 +27,8 @@ public class CASubSceneAnimal extends SubScene {
     private boolean isEscondido = true;
     private final Animal animal;
     private final List<Comida> comidas;
+    private TelaJogo jogo;
+    private int pontos = 0;
 
     public CASubSceneAnimal(Animal animal, List<Comida> comidas) {
         super(new AnchorPane(), 1300, 690);
@@ -40,19 +42,21 @@ public class CASubSceneAnimal extends SubScene {
         this.animal = animal;
         this.comidas = comidas;
         SubSceneElementos();
-
         setLayoutX(1320);
         setLayoutY(5);
     }
 
     public boolean SubSceneElementos() {
         ImageView imagemAnimal = animal.getImagemAnimal2();
-        imagemAnimal.setLayoutX(100);
+        imagemAnimal.setFitWidth(240);
+        imagemAnimal.setFitHeight(350);
+        imagemAnimal.setLayoutX(90);
         imagemAnimal.setLayoutY(120);
         imagemAnimal.setEffect(new DropShadow(20, Color.SLATEGREY));
         this.getPane().getChildren().add(imagemAnimal);
 
         CAExitButton fechar = new CAExitButton(this);
+
         fechar.setLayoutX(1180);
         fechar.setLayoutY(30);
         this.getPane().getChildren().add(fechar);
@@ -62,6 +66,14 @@ public class CASubSceneAnimal extends SubScene {
         comidaLabel.setLayoutY(50);
         this.getPane().getChildren().add(comidaLabel);
 
+        String ACERTO_PATH = "resources/buttons/acerto.png";
+        ImageView acerto = new ImageView(ACERTO_PATH);
+        String ERRO_PATH = "resources/buttons/erro.png";
+        ImageView erro = new ImageView(ERRO_PATH);
+
+        CASubSceneInfoAnimal infoAnimal = new CASubSceneInfoAnimal(animal);
+        this.getPane().getChildren().add(infoAnimal);
+
         int i = 0;
         for (Comida img : comidas) {
 
@@ -69,18 +81,42 @@ public class CASubSceneAnimal extends SubScene {
             ComidaButton buttonComida = new ComidaButton(comidaImg, img.getUrlComidaIcon());
             buttonComida.setGraphic(comidaImg);
             buttonComida.setLayoutX(500 + i);
-            buttonComida.setLayoutY(300);
+            buttonComida.setLayoutY(530);
+
             buttonComida.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    if(buttonComida.getComida().equals(animal.getComida().getUrlComidaIcon())){
+                    if (buttonComida.getComida().equals(animal.getComida().getUrlComidaIcon())) {
+                        TelaJogo.pontuacao += 10;
                         System.out.println("Acertou");
-                    }else{
+                        acerto.setLayoutX(160);
+                        acerto.setLayoutY(500);
+                        if (getPane().getChildren().contains(erro)) {
+                            getPane().getChildren().remove(erro);
+
+                        }
+                        if (!getPane().getChildren().contains(acerto)) {
+                            getPane().getChildren().add(acerto);
+                        }
+                        infoAnimal.moveSubScene();
+                    } else {
                         System.out.println("Errou");
+                        erro.setLayoutX(160);
+                        erro.setLayoutY(500);
+                        if (getPane().getChildren().contains(acerto)) {
+                            infoAnimal.moveSubScene();
+                            getPane().getChildren().remove(acerto);
+                        }
+                        if (!getPane().getChildren().contains(erro)) {
+                            getPane().getChildren().add(erro);
+                        }
                     }
                 }
-            });
-            this.getPane().getChildren().add(buttonComida);
+            }
+            );
+
+            this.getPane()
+                    .getChildren().add(buttonComida);
             i += 200;
         }
         return false;
@@ -101,4 +137,9 @@ public class CASubSceneAnimal extends SubScene {
     public AnchorPane getPane() {
         return (AnchorPane) this.getRoot();
     }
+
+    public int getPontos() {
+        return pontos;
+    }
+
 }
