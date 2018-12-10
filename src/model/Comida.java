@@ -15,7 +15,7 @@ public enum Comida {
     FOLHA("resources/imagens/comidas/folha.png"),
     GRAMA("resources/imagens/comidas/grama.png"),
     GRILO("resources/imagens/comidas/grilo.png"),
-    HAMBURGUER("resources/imagens/comidas/hamburguer.png"),
+    HAMBURGUER("resources/imagens/comidas/hamburger.png"),
     JOANINHA("resources/imagens/comidas/joaninha.png"),
     CEBOLA("resources/imagens/comidas/cebola.png"),
     PIZZA("resources/imagens/comidas/pizza.png"),
@@ -26,14 +26,14 @@ public enum Comida {
     FORMIGA("resources/imagens/comidas/formiga.png"),
     FLOR("resources/imagens/comidas/flor.png"),
     CARANGUEJO("resources/imagens/comidas/caranguejo.png");
-    
+
     private final String urlComidaIcon;
-    
-    private Comida(String urlComidaIcon){
+
+    private Comida(String urlComidaIcon) {
         this.urlComidaIcon = urlComidaIcon;
     }
-    
-    public String getUrlComidaIcon(){
+
+    public String getUrlComidaIcon() {
         return urlComidaIcon;
     }
 }

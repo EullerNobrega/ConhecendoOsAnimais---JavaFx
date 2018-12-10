@@ -30,6 +30,7 @@ class TelaAmericaNorte {
 
     private CASubSceneAnimal sceneEsconder;
     private CASubSceneAnimal raposaSc, ursoSc, loboSc, oncaSc, alceSc, linceSc, guaxinimSc, gambaSc, doninhaSc, ursoPolarSc;
+    private List<String> loboList, ursoPolarList, guaxinimList, ursoPardoList, raposaVermelhaList, oncaPardaList, linceList, gambaList, doninhaAnaList, alceList;
 
     private final RepositorioAnimaisAmericaNorte americaNorteDAO;
 
@@ -183,44 +184,95 @@ class TelaAmericaNorte {
     }
 
     public void criarSubsScenes() {
+        loboList = new ArrayList<>();
+        ursoPolarList = new ArrayList<>();
+        guaxinimList = new ArrayList<>();
+        ursoPardoList = new ArrayList<>();
+        raposaVermelhaList = new ArrayList<>();
+        oncaPardaList = new ArrayList<>();
+        linceList = new ArrayList<>();
+        gambaList = new ArrayList<>();
+        doninhaAnaList = new ArrayList<>();
+        alceList = new ArrayList<>();
+
         Animal raposa = americaNorteDAO.consultar("Raposa-vermelha.");
-        raposaSc = new CASubSceneAnimal(raposa);
+        raposaVermelhaList.add(Comida.MOSCA.getUrlComidaIcon());
+        raposaVermelhaList.add(Comida.GRILO.getUrlComidaIcon());
+        raposaVermelhaList.add(Comida.CARNE.getUrlComidaIcon()); // Come esse
+//        raposaSc = new CASubSceneAnimal(raposa, Comida.MOSCA, Comida.GRILO, Comida.CARNE);
+        raposaSc = new CASubSceneAnimal(raposa, raposaVermelhaList);
         americaNortePainel.getChildren().add(raposaSc);
 
         Animal urso = americaNorteDAO.consultar("Urso-pardo.");
-        ursoSc = new CASubSceneAnimal(urso);
+        ursoPardoList.add(Comida.PEIXE.getUrlComidaIcon()); // Come esse
+        ursoPardoList.add(Comida.JOANINHA.getUrlComidaIcon());
+        ursoPardoList.add(Comida.CEBOLA.getUrlComidaIcon());
+//        ursoSc = new CASubSceneAnimal(urso, Comida.PEIXE, Comida.JOANINHA, Comida.CEBOLA);
+        ursoSc = new CASubSceneAnimal(urso, ursoPardoList);
         americaNortePainel.getChildren().add(ursoSc);
 
         Animal lobo = americaNorteDAO.consultar("Lobo.");
-        loboSc = new CASubSceneAnimal(lobo);
+        loboList.add(Comida.PAO.getUrlComidaIcon());
+        loboList.add(Comida.CAMARAO.getUrlComidaIcon());
+        loboList.add(Comida.CARNE.getUrlComidaIcon()); // Come essa
+//        loboSc = new CASubSceneAnimal(lobo, Comida.PAO, Comida.CAMARAO, Comida.CARNE);
+        loboSc = new CASubSceneAnimal(lobo, loboList);
         americaNortePainel.getChildren().add(loboSc);
 
         Animal onca = americaNorteDAO.consultar("Onça-parda.");
-        oncaSc = new CASubSceneAnimal(onca);
+        oncaPardaList.add(Comida.GRAMA.getUrlComidaIcon());
+        oncaPardaList.add(Comida.CARNE.getUrlComidaIcon()); // Come esse
+        oncaPardaList.add(Comida.VEGETAL.getUrlComidaIcon());
+//        oncaSc = new CASubSceneAnimal(onca, Comida.GRAMA, Comida.CARNE, Comida.VEGETAL);
+        oncaSc = new CASubSceneAnimal(onca, oncaPardaList);
         americaNortePainel.getChildren().add(oncaSc);
 
         Animal alce = americaNorteDAO.consultar("Alce.");
-        alceSc = new CASubSceneAnimal(alce);
+        alceList.add(Comida.VEGETAL.getUrlComidaIcon()); // Come esse
+        alceList.add(Comida.PIZZA.getUrlComidaIcon());
+        alceList.add(Comida.CARNE.getUrlComidaIcon());
+//        alceSc = new CASubSceneAnimal(alce, Comida.VEGETAL, Comida.PIZZA, Comida.CARNE);
+        alceSc = new CASubSceneAnimal(alce, alceList);
         americaNortePainel.getChildren().add(alceSc);
 
         Animal lince = americaNorteDAO.consultar("Lince.");
-        linceSc = new CASubSceneAnimal(lince);
+        linceList.add(Comida.PAO.getUrlComidaIcon());
+        linceList.add(Comida.CARNE.getUrlComidaIcon()); // Come esse
+        linceList.add(Comida.BANANA.getUrlComidaIcon());
+//        linceSc = new CASubSceneAnimal(lince, Comida.PAO, Comida.CARNE, Comida.BANANA);
+        linceSc = new CASubSceneAnimal(lince, linceList);
         americaNortePainel.getChildren().add(linceSc);
 
         Animal guaxinim = americaNorteDAO.consultar("Guaxinim.");
-        guaxinimSc = new CASubSceneAnimal(guaxinim);
+        guaxinimList.add(Comida.FOLHA.getUrlComidaIcon()); // Come esse
+        guaxinimList.add(Comida.HAMBURGUER.getUrlComidaIcon());
+        guaxinimList.add(Comida.BAMBOO.getUrlComidaIcon());
+//        guaxinimSc = new CASubSceneAnimal(guaxinim, Comida.FOLHA, Comida.HAMBURGUER, Comida.BAMBOO);
+        guaxinimSc = new CASubSceneAnimal(guaxinim, guaxinimList);
         americaNortePainel.getChildren().add(guaxinimSc);
 
         Animal gamba = americaNorteDAO.consultar("Gambá.");
-        gambaSc = new CASubSceneAnimal(gamba);
+        gambaList.add(Comida.FRANGO.getUrlComidaIcon());
+        gambaList.add(Comida.GRILO.getUrlComidaIcon()); // Come esse
+        gambaList.add(Comida.CAMARAO.getUrlComidaIcon());
+//        gambaSc = new CASubSceneAnimal(gamba, Comida.FRANGO, Comida.GRILO, Comida.CAMARAO);
+        gambaSc = new CASubSceneAnimal(gamba, gambaList);
         americaNortePainel.getChildren().add(gambaSc);
 
         Animal doninha = americaNorteDAO.consultar("Doninha-anã.");
-        doninhaSc = new CASubSceneAnimal(doninha);
+        doninhaAnaList.add(Comida.RATO.getUrlComidaIcon()); // Come esse
+        doninhaAnaList.add(Comida.HAMBURGUER.getUrlComidaIcon());
+        doninhaAnaList.add(Comida.BANANA.getUrlComidaIcon());
+//        doninhaSc = new CASubSceneAnimal(doninha, Comida.RATO, Comida.HAMBURGUER, Comida.BANANA);
+        doninhaSc = new CASubSceneAnimal(doninha, doninhaAnaList);
         americaNortePainel.getChildren().add(doninhaSc);
 
         Animal ursoPolar = americaNorteDAO.consultar("Urso-polar.");
-        ursoPolarSc = new CASubSceneAnimal(ursoPolar);
+        ursoPolarList.add(Comida.CEBOLA.getUrlComidaIcon());
+        ursoPolarList.add(Comida.CENOURA.getUrlComidaIcon());
+        ursoPolarList.add(Comida.PEIXE.getUrlComidaIcon()); // Come essa
+//        ursoPolarSc = new CASubSceneAnimal(ursoPolar, Comida.CEBOLA, Comida.CENOURA, Comida.PEIXE);
+        ursoPolarSc = new CASubSceneAnimal(ursoPolar, ursoPolarList);
         americaNortePainel.getChildren().add(ursoPolarSc);
 
     }
@@ -232,6 +284,5 @@ class TelaAmericaNorte {
         subscene.moveSubScene();
         sceneEsconder = subscene;
     }
-
 
 }

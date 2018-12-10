@@ -19,7 +19,6 @@ public class RepositorioAnimaisAmericaNorte {
     private String raposa, urso, lobo, onca, alce, lince, guaxinim, gamba, doninha, ursoPolar;
     private String raposa2, urso2, lobo2, onca2, alce2, lince2, guaxinim2, gamba2, doninha2, ursoPolar2;
 
-    private List<Comida> loboList, ursoPolarList, guaxinimList, ursoPardoList, raposaVermelhaList, oncaPardaList, linceList, gambaList, doninhaAnaList, alceList;
 
     public RepositorioAnimaisAmericaNorte() {
         animaisANorte = new ArrayList<>();
@@ -70,56 +69,25 @@ public class RepositorioAnimaisAmericaNorte {
     }
 
     public void criarComidas() {
-        loboList = new ArrayList<>();
-        ursoPolarList = new ArrayList<>();
-        guaxinimList = new ArrayList<>();
-        ursoPardoList = new ArrayList<>();
-        raposaVermelhaList = new ArrayList<>();
-        oncaPardaList = new ArrayList<>();
-        linceList = new ArrayList<>();
-        gambaList = new ArrayList<>();
-        doninhaAnaList = new ArrayList<>();
-        alceList = new ArrayList<>();
+        
 
-        loboList.add(Comida.PAO);
-        loboList.add(Comida.CAMARAO);
-        loboList.add(Comida.CARNE); // Come essa
 
-        ursoPolarList.add(Comida.CEBOLA);
-        ursoPolarList.add(Comida.CENOURA);
-        ursoPolarList.add(Comida.PEIXE); // Come essa
+        
 
-        guaxinimList.add(Comida.FOLHA); // Come esse
-        guaxinimList.add(Comida.HAMBURGUER);
-        guaxinimList.add(Comida.BAMBOO);
+       
+        
 
-        ursoPardoList.add(Comida.PEIXE); // Come esse
-        ursoPardoList.add(Comida.JOANINHA);
-        ursoPardoList.add(Comida.CEBOLA);
+        
 
-        raposaVermelhaList.add(Comida.MOSCA);
-        raposaVermelhaList.add(Comida.GRILO);
-        raposaVermelhaList.add(Comida.CARNE); // Come esse
+        
 
-        oncaPardaList.add(Comida.GRAMA);
-        oncaPardaList.add(Comida.CARNE); // Come esse
-        oncaPardaList.add(Comida.VEGETAL);
+        
 
-        linceList.add(Comida.PAO);
-        linceList.add(Comida.CARNE); // Come esse
-        linceList.add(Comida.BANANA);
+        
 
-        gambaList.add(Comida.FRANGO);
-        gambaList.add(Comida.GRILO); // Come esse
-        gambaList.add(Comida.CAMARAO);
+       
 
-        doninhaAnaList.add(Comida.RATO); // Come esse
-        doninhaAnaList.add(Comida.HAMBURGUER);
-        doninhaAnaList.add(Comida.BANANA);
-
-        alceList.add(Comida.VEGETAL); // Come esse
-        alceList.add(Comida.PIZZA);
-        alceList.add(Comida.CARNE);
+        
     }
 
     public void init() {
